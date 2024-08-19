@@ -1,14 +1,35 @@
 version: "3.8"
 services:
-  server:
+  server1:
     image: server
     build:
       context: ./server
       dockerfile: Dockerfile
-    container_name: ${SERVER_HOST}
+    container_name: server1
     env_file: .env
     ports:
-      - ${SERVER_PORT}:${SERVER_PORT}
+      - "8888:${SERVER_PORT}"
+
+  server2:
+    image: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: server2
+    env_file: .env
+    ports:
+      - "8889:${SERVER_PORT}"
+
+  server3:
+    image: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: server3
+    env_file: .env
+    ports:
+      - "8890:${SERVER_PORT}"
+
   nginx:
     image: nginx
     restart: always
@@ -17,5 +38,8 @@ services:
       dockerfile: Dockerfile
     env_file: .env
     ports:
-      - ${NGINX_PORT}:${NGINX_PORT}
-     
+      - "${NGINX_PORT}:${NGINX_PORT}"
+    depends_on:
+      - server1
+      - server2
+      - server3
