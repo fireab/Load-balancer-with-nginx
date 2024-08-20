@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>README</title>
-</head>
-<body>
+
+
     <h1>Load Balancing with Nginx and Node.js</h1>
     <p>This repository demonstrates load balancing using Nginx with multiple instances of Node.js servers. The setup is built using Docker Compose.</p>
 
@@ -35,5 +29,4 @@ docker-compose up</code></pre>
 
     <h2 id="license">License</h2>
     <p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
-</body>
-</html>
+
